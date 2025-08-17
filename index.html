@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Farm to Cup 오픈 안내</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      background-color: #fff;
-      color: #333;
+    :root{
+      --fg:#213a23; /* 진녹색 */
+      --text:#333;
+      --muted:#666;
     }
-    .hero {
-      width: 100%;
-      max-width: 100%;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+      text-align:center;
     }
-    .info {
-      padding: 20px;
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:16px;
     }
-    .info h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
+
+    /* 포스터가 화면을 다 먹지 않게 제한 */
+    .hero{
+      width:100%;
+      height:auto;
+      max-height:65vh;      /* 화면의 65%까지만 보여주기 → 아래 텍스트가 1스크린에 보임 */
+      object-fit:contain;   /* 이미지 비율 유지하며 맞춤 */
+      display:block;
+      margin:0 auto 12px;
     }
-    .info p {
-      font-size: 1.2em;
-      margin: 5px 0;
+
+    .info{
+      padding:8px 8px 24px;
     }
-    .footer {
-      margin-top: 30px;
-      font-size: 1em;
-      color: #555;
+    .title{
+      font-size: clamp(22px, 3.2vw, 34px);
+      font-weight:700;
+      color:var(--fg);
+      margin:4px 0 8px;
+    }
+    .line{font-size: clamp(15px, 2.2vw, 18px); margin:4px 0}
+    .muted{color:var(--muted)}
+    .footer{
+      margin:10px 0 24px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* 모바일에서 살짝 더 줄이기 */
+    @media (max-width:480px){
+      .hero{max-height:58vh}
     }
   </style>
 </head>
 <body>
-  <!-- 이미지 파일 이름을 저장소에 맞게 수정 -->
-  <img src="co.kr.png" alt="Farm to Cup 오픈" class="hero">
-  <div class="info">
-    <h1>Farm to Cup GRAND OPEN!</h1>
-    <p>📅 2025년 9월 1일 오픈</p>
-    <p>📞 문의: 010-5000-4757</p>
-    <p>🌐 www.farmtocup.co.kr</p>
-  </div>
-  <div class="footer">
-    © 2025 Farm to Cup. All Rights Reserved.
+  <!-- 이미지 파일명만 네 파일명으로 바꾸면 됨 -->
+  <div class="wrap">
+    <img src="co.kr.png" alt="Farm to Cup 포스터" class="hero" loading="lazy">
+
+    <div class="info">
+      <h1 class="title">Farm to Cup GRAND OPEN!</h1>
+      <p class="line">📅 2025년 9월 1일 오픈</p>
+      <p class="line">📞 문의: 010-5000-4757</p>
+      <p class="line">🌐 <a href="https://www.farmtocup.co.kr" target="_blank" rel="noopener">www.farmtocup.co.kr</a></p>
+      <p class="footer muted">© 2025 Farm to Cup. All Rights Reserved.</p>
+    </div>
   </div>
 </body>
 </html>
+
 
